@@ -6,7 +6,6 @@ let clientObject = null;
 
 // TODO: Pull this into a util file
 const client = key => {
-    console.log('key: ', key)
     //singleton-style
     if (clientObject == null) {
         clientObject = new faunadb.Client({
