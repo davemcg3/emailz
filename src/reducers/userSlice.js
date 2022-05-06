@@ -15,7 +15,7 @@ const authState = {
 }
 
 const registerCall = createAsyncThunk(USERS_CREATE, args => {
-    return fetch("http://localhost:8888/api/users-sign-up", { method: 'POST', mode: 'no-cors', body: JSON.stringify(args) })
+    return fetch("/api/users-sign-up", { method: 'POST', mode: 'no-cors', body: JSON.stringify(args) })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -24,7 +24,7 @@ const registerCall = createAsyncThunk(USERS_CREATE, args => {
 })
 
 const loginCall = createAsyncThunk(USERS_LOGIN, (args, { dispatch }) => {
-    return fetch("http://localhost:8888/api/users-sign-in", { method: 'POST', mode: 'no-cors', body: args })
+    return fetch("/api/users-sign-in", { method: 'POST', mode: 'no-cors', body: args })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -37,7 +37,7 @@ const loginCall = createAsyncThunk(USERS_LOGIN, (args, { dispatch }) => {
 })
 
 const profileFetchCall = createAsyncThunk(USERS_RETRIEVE, args => {
-    return fetch("http://localhost:8888/api/user-retrieve", { method: 'POST', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` }, body: JSON.stringify({id: args.id}) })
+    return fetch("/api/user-retrieve", { method: 'POST', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` }, body: JSON.stringify({id: args.id}) })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -46,7 +46,7 @@ const profileFetchCall = createAsyncThunk(USERS_RETRIEVE, args => {
 })
 
 const logoutCall = createAsyncThunk(USERS_LOGOUT, args => {
-    return fetch("http://localhost:8888/api/users-sign-out", { method: 'DELETE', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
+    return fetch("/api/users-sign-out", { method: 'DELETE', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()

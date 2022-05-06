@@ -17,7 +17,7 @@ const subscriptionState = {
 // the shape of args should be a json array with a single email key:
 // { "email": "foo@bar.com" }
 const subscribeCall = createAsyncThunk(SUBSCRIPTIONS_SUBSCRIBE, (args, { dispatch }) => {
-    return fetch("http://localhost:8888/api/subscriptions-create", { method: 'POST', mode: 'no-cors', body: JSON.stringify(args) })
+    return fetch("/api/subscriptions-create", { method: 'POST', mode: 'no-cors', body: JSON.stringify(args) })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -32,7 +32,7 @@ const subscribeCall = createAsyncThunk(SUBSCRIPTIONS_SUBSCRIBE, (args, { dispatc
 // the shape of args should be a json array with an email and action key:
 // { "email": "foo@bar.com", "action": "unsubscribe" }
 const unsubscribeCall = createAsyncThunk(SUBSCRIPTIONS_UNSUBSCRIBE, (args, { dispatch }) => {
-    return fetch("http://localhost:8888/api/subscriptions-update", { method: 'POST', mode: 'no-cors', body: JSON.stringify(args) })
+    return fetch("/api/subscriptions-update", { method: 'POST', mode: 'no-cors', body: JSON.stringify(args) })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -47,7 +47,7 @@ const unsubscribeCall = createAsyncThunk(SUBSCRIPTIONS_UNSUBSCRIBE, (args, { dis
 // the shape of args should be a json array with a single email key:
 // { "email": "foo@bar.com" }
 const gdprCall = createAsyncThunk(SUBSCRIPTIONS_GDPR, (args, { dispatch }) => {
-    return fetch("http://localhost:8888/api/subscriptions-delete", { method: 'DELETE', mode: 'cors', body: JSON.stringify(args) })
+    return fetch("/api/subscriptions-delete", { method: 'DELETE', mode: 'cors', body: JSON.stringify(args) })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -61,7 +61,7 @@ const gdprCall = createAsyncThunk(SUBSCRIPTIONS_GDPR, (args, { dispatch }) => {
 
 // { "secret": "token string", "setIsLoading": fn }
 const fetchSubscriptionsCall = createAsyncThunk(SUBSCRIPTIONS_RETRIEVE_ALL, args => {
-    return fetch("http://localhost:8888/api/subscriptions-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
+    return fetch("/api/subscriptions-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
