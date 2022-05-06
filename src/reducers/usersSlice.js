@@ -12,7 +12,7 @@ const usersState = {
 }
 
 const fetchUsersCall = createAsyncThunk(USERS_RETRIEVE_ALL, args => {
-    return fetch("http://localhost:8888/api/users-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
+    return fetch("/api/users-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -26,7 +26,7 @@ const fetchUsersCall = createAsyncThunk(USERS_RETRIEVE_ALL, args => {
 
 // { "email": "bar@bar.com", "upgrade": true, setIsLoading: fn }
 const makeAdminCall = createAsyncThunk(USERS_MAKE_ADMIN, args => {
-    return fetch("http://localhost:8888/api/users-make-admin", { method: 'POST', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` }, body: JSON.stringify({ "email": args.email, "upgrade": args.upgrade }) })
+    return fetch("/api/users-make-admin", { method: 'POST', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` }, body: JSON.stringify({ "email": args.email, "upgrade": args.upgrade }) })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
@@ -40,7 +40,7 @@ const makeAdminCall = createAsyncThunk(USERS_MAKE_ADMIN, args => {
 
 // { "email": "bar@bar.com", setIsLoading: fn }
 const deleteUserCall = createAsyncThunk(USERS_DELETE_ONE, args => {
-    return fetch("http://localhost:8888/api/users-delete", { method: 'DELETE', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` }, body: JSON.stringify({ "email": args.email }) })
+    return fetch("/api/users-delete", { method: 'DELETE', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` }, body: JSON.stringify({ "email": args.email }) })
         .then(response => {
             if (!response.ok) throw Error(response.statusText)
             return response.json()
