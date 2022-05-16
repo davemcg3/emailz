@@ -8,7 +8,7 @@ export default function Subscribe(dispatch) {
         <>
             <img src={header} alt="Beater Cadillac" />
             <h2>Subscribe</h2>
-            <p>Subscribe to our mailing list for weekly emails of pictures of cars that have had better days.</p>
+            <p>Not every car can be a <a href="https://www.hagerty.com/media/market-trends/hagerty-insider/rumor-mercedes-benz-silver-arrow-sold-for-record-142-million/" target="_blank">$142M Mercedes-Benz Silver Arrow</a>! Subscribe to our mailing list for weekly emails of pictures of cars that have had better days.</p>
             <Formik
                 initialValues={{ email: '' }}
                 validate={values => {
