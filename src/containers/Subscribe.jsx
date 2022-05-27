@@ -1,6 +1,7 @@
 import { Formik } from 'formik'
 import { subscribeCall } from '../reducers/subscriptionSlice'
-import header from '../images/cadillac.jpg'
+//import header from '../images/cadillac.jpg'
+import paintHero from '../images/Craigslist-Find-Classic-GM-Car-Hoard2.jpg'
 import chevyTruck from '../images/chevy-truck.jpg'
 import chevelle from '../images/Craigslist-Find-Classic-GM-Car-Hoard-5.jpg'
 
@@ -10,7 +11,7 @@ export default function Subscribe(dispatch) {
         <>
             <div className="flex-container">
                 <div className="flex-item two-thirds">
-                    <img src={header} alt="Beater Cadillac" />
+                    <img src={paintHero} alt="Beater Cadillac" />
                 </div>
                 <div className="flex-item one-third padded" id="signup">
                     <h2 className="haggard-font">Get pictures of great cars in your email</h2>
