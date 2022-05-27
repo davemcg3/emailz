@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useLocation, Navigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { authState } from './reducers/userSlice'
-import './index.scss';
+import './index.css';
 import App from './App';
 import Gdpr from './routes/gdpr';
 import Home from './routes/home';
