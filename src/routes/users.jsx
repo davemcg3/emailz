@@ -56,7 +56,7 @@ export default function Users() {
     const userTable = () => {
         let mapKey = 0;
         return (
-            <>
+            <div className="flex-item padded-1">
                 <table>
                     <thead>
                         <tr>
@@ -80,12 +80,12 @@ export default function Users() {
                         })}
                     </tbody>
                 </table>
-            </>
+            </div>
         )
     }
 
     return (
-        <main>
+        <main className="flex-container flex-column">
             { isLoading ? loading() : userTable() }
         </main>
     );
