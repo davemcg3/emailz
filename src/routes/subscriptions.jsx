@@ -87,12 +87,12 @@ export default function Subscriptions() {
             .filter(subscription => { return !subscription[2] })
             .map(subscription => { return subscription[0] } )
         return (
-            <>
+            <div className="flex-item padded-1">
                 <h2>Active Subscriptions</h2>
                 <p>
                     { activeSubscriptions.join(',') }
                 </p>
-            </>
+            </div>
         )
     }
 
@@ -109,21 +109,23 @@ export default function Subscriptions() {
         let mapKey = 0;
         return (
             <>
-                <input
-                    type="radio"
-                    name="show_unsubscribed"
-                    value="false"
-                    checked={showUnsubscribed === false}
-                    onChange={changeFilter}
-                />Show Active
-                <input
-                    type="radio"
-                    name="show_unsubscribed"
-                    value="true"
-                    checked={showUnsubscribed === true}
-                    onChange={changeFilter}
-                />Show All
-                <table>
+                <div className="flex-item padded-1">
+                    <input
+                        type="radio"
+                        name="show_unsubscribed"
+                        value="false"
+                        checked={showUnsubscribed === false}
+                        onChange={changeFilter}
+                    />Show Active
+                    <input
+                        type="radio"
+                        name="show_unsubscribed"
+                        value="true"
+                        checked={showUnsubscribed === true}
+                        onChange={changeFilter}
+                    />Show All
+                </div>
+                <table className="flex-item padded-1">
                     <thead>
                         <tr>
                             <th>Email</th>
@@ -147,13 +149,14 @@ export default function Subscriptions() {
                         })}
                     </tbody>
                 </table>
-                <hr />
+                <hr className="flex-item" />
                 { loadCsv() }
             </>
         )
     }
+
     return (
-        <main>
+        <main className="flex-container flex-column">
             {isLoading ? loading() : subscriptionsTable(showUnsubscribed)}
         </main>
     );

@@ -10,10 +10,10 @@ export default function Subscribe(dispatch) {
     return (
         <>
             <div className="flex-container">
-                <div className="flex-item two-thirds">
+                <div className="flex-item two-thirds padded margined">
                     <img src={paintHero} alt="Beater Cadillac" />
                 </div>
-                <div className="flex-item one-third padded" id="signup">
+                <div className="flex-item one-third padded margined" id="signup">
                     <h2 className="haggard-font">Get pictures of great cars in your email</h2>
                     <p>Not every car can be a <a href="https://www.hagerty.com/media/market-trends/hagerty-insider/rumor-mercedes-benz-silver-arrow-sold-for-record-142-million/" target="_blank" rel="noreferrer">$142M Mercedes-Benz Silver Arrow</a>! Subscribe to our mailing list for weekly emails of pictures of cars that have had better days.</p>
                     <Formik
@@ -71,21 +71,21 @@ export default function Subscribe(dispatch) {
             </div>
 
             <div className="flex-container">
-                <div className="flex-item one-third padded">
+                <div className="flex-item one-third padded margined">
                     <h2 className="haggard-font">You want this</h2>
                     <p>Nothing to it, just pictures of cars that look like you before you've had your first cup of coffee.</p>
                     <a href="#signup"><button>Treat yourself</button></a>
                 </div>
-                <div className="flex-item two-thirds">
+                <div className="flex-item two-thirds margined">
                     <img src={chevyTruck} alt="Rusted Out Chevy Truck" />
                 </div>
             </div>
 
             <div className="flex-container">
-                <div className="flex-item two-thirds">
+                <div className="flex-item two-thirds margined">
                     <img src={chevelle} alt="Rotted out Chevelle and rusting friend" />
                 </div>
-                <div className="flex-item one-third padded">
+                <div className="flex-item one-third padded margined">
                     <h2 className="haggard-font">Really?</h2>
                     <p>What do you think you're going to find down here? Just another link to the signup form.</p>
                     <a href="#signup"><button>Just sign up</button></a>

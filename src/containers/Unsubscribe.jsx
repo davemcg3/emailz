@@ -63,7 +63,7 @@ export default function Unsubscribe(dispatch, email = '') {
                         }
                     </Formik>
                 </div>
-                <div className="flex-item two-thirds">
+                <div className="flex-item two-thirds margined">
                     <img src={rust} alt="Rusty classic car" />
                 </div>
             </div>
