@@ -57,23 +57,25 @@ export default function Users() {
         let mapKey = 0;
         return (
             <div className="flex-item padded-1">
+                <h2 className="haggard-font">System Users</h2>
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Admin</th>
+                            <th>Permissions</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         {users.map(userArray => {
+                            console.log(userArray)
                             //if (userArray === null || userArray === undefined) return;
                             return(
                                 <tr key={userArray[0] + userArray[1] + ++mapKey}>
                                     <td>{userArray[0]}</td>
                                     <td>{userArray[1]}</td>
-                                    <td>{userArray[2]}</td>
+                                    <td>{userArray[2] ? 'admin' : 'standard' }</td>
                                     <td><button onClick={onClick} data-user={JSON.stringify(userArray)}>{userArray[2] ? 'Remove Admin' : 'Make Admin'}</button> <button onClick={onClick} data-user={JSON.stringify(userArray)}>Delete</button></td>
                                 </tr>
                             )

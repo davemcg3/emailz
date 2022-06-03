@@ -9,8 +9,8 @@ export default function Register() {
     const location = useLocation();
 
     return (
-        <main>
-            <h2>Register</h2>
+        <main className="padded margined">
+            <h2 className="haggard-font">Register</h2>
             <Formik
                 initialValues={{ email: '', name: '', password: '' }}
                 validate={values => {

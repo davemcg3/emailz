@@ -2,7 +2,7 @@ import { subscriptionState } from '../reducers/subscriptionSlice'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
 import subscribe from '../containers/Subscribe'
-import unsubscribe from '../containers/Unsubscribe'
+import subscribed from '../containers/Subscribed'
 
 export default function Home() {
     const dispatch = useDispatch()
@@ -11,7 +11,7 @@ export default function Home() {
 
     return (
         <main>
-            { email && !unsubscribed ? unsubscribe(dispatch, email) : subscribe(dispatch) }
+            { email && !unsubscribed ? subscribed() : subscribe(dispatch) }
         </main>
     );
 }

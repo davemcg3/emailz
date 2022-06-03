@@ -21,8 +21,8 @@ export default function Login() {
     }, [secret, navigate, profileFetching, from])
 
     return (
-        <main>
-            <h2>Login</h2>
+        <main className="padded margined">
+            <h2 className="haggard-font">Login</h2>
             <Formik
                 initialValues={{ email: '', password: '' }}
                 validate={values => {

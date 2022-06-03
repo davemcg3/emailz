@@ -14,7 +14,7 @@ export default function Subscribe(dispatch) {
                     <img src={paintHero} alt="Beater Cadillac" />
                 </div>
                 <div className="flex-item one-third padded margined" id="signup">
-                    <h2 className="haggard-font">Get pictures of great cars in your email</h2>
+                    <h2 className="haggard-font">Get pictures of real cars in your email</h2>
                     <p>Not every car can be a <a href="https://www.hagerty.com/media/market-trends/hagerty-insider/rumor-mercedes-benz-silver-arrow-sold-for-record-142-million/" target="_blank" rel="noreferrer">$142M Mercedes-Benz Silver Arrow</a>! Subscribe to our mailing list for weekly emails of pictures of cars that have had better days.</p>
                     <Formik
                         initialValues={{ email: '' }}
@@ -87,7 +87,7 @@ export default function Subscribe(dispatch) {
                 </div>
                 <div className="flex-item one-third padded margined">
                     <h2 className="haggard-font">Really?</h2>
-                    <p>What do you think you're going to find down here? Just another link to the signup form.</p>
+                    <p>What do you think you're going to find down here? Just more great pictures and another link to the signup form.</p>
                     <a href="#signup"><button>Just sign up</button></a>
                 </div>
             </div>

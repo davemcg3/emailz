@@ -88,7 +88,8 @@ export default function Subscriptions() {
             .map(subscription => { return subscription[0] } )
         return (
             <div className="flex-item padded-1">
-                <h2>Active Subscriptions</h2>
+                <h2 className="haggard-font">Only Active Subscriptions</h2>
+                <h3>For copy/paste ease</h3>
                 <p>
                     { activeSubscriptions.join(',') }
                 </p>
@@ -109,6 +110,7 @@ export default function Subscriptions() {
         let mapKey = 0;
         return (
             <>
+                <h2 className="haggard-font">Subscriptions</h2>
                 <div className="flex-item padded-1">
                     <input
                         type="radio"
