@@ -1,9 +1,12 @@
 import { Formik } from 'formik'
+import { useNavigate } from 'react-router'
 import { unsubscribeCall } from '../reducers/subscriptionSlice'
 import { clearState } from '../reducers/subscriptionSlice'
 import rust from '../images/Rust.png'
 
 export default function Unsubscribe(dispatch, email = '') {
+    const navigate = useNavigate()
+
     const onClick = (e) => {
         dispatch(clearState())
     }
@@ -32,6 +35,7 @@ export default function Unsubscribe(dispatch, email = '') {
                             setTimeout(() => {
                                 dispatch(unsubscribeCall(values))
                                 setSubmitting(false)
+                                navigate('/', { replace: true })
                             }, 400)
                         }
                         }

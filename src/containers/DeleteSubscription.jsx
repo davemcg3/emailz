@@ -1,16 +1,18 @@
 import { Formik } from 'formik'
+import { useNavigate } from 'react-router'
 import { gdprCall } from '../reducers/subscriptionSlice'
 import chevrolet from '../images/Chevrolet.jpeg'
 
 export default function DeleteSubscription(dispatch, email = '') {
+    const navigate = useNavigate()
+
     return (
         <div className="flex-container">
             <div className="flex-item two-thirds margined">
                 <img src={chevrolet} alt="Rusted out blue Chevrolet" />
             </div>
             <div className="flex-item one-third padded">
-                <h2>Welcome to Hagerty</h2>
-                <h3>GDPR Me</h3>
+                <h2 className="haggard-font">GDPR Me</h2>
                 <p>{!email && 'Fill in your email then'} {email ? 'C' : 'c'}lick the button below if you wish to remove yourself from this system.</p>
                 <Formik
                     initialValues={{ email: email }}
@@ -30,6 +32,7 @@ export default function DeleteSubscription(dispatch, email = '') {
                         setTimeout(() => {
                             dispatch(gdprCall(values))
                             setSubmitting(false)
+                            navigate('/', { replace: true })
                         }, 400)
                     }
                     }

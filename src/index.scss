@@ -88,6 +88,16 @@ code {
         padding: 1em;
     }
 
+    .columned {
+        column-count: 2;
+        column-gap: 1em;
+    }
+
+    .vh-restricted {
+        width: 100%;
+        height: auto;
+    }
+
     hr {
         width: 100%;
     }
