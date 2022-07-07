@@ -2,7 +2,7 @@ import {
     createSlice,
     createAsyncThunk,
 } from '@reduxjs/toolkit'
-import { USERS_RETRIEVE_ALL, USERS_MAKE_ADMIN, USERS_DELETE_ONE } from '../constants'
+import { USERS_RETRIEVE_ALL, USERS_MAKE_ADMIN, USERS_DELETE_ONE } from '../constants.js'
 
 
 const usersState = {

@@ -4,13 +4,13 @@ import {
 } from '@reduxjs/toolkit'
 import { combineReducers } from 'redux'
 import { persistStore, persistReducer } from 'redux-persist'
-import storage from 'redux-persist/lib/storage'
+import storage from 'redux-persist/es/storage/index.js'
 import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 
-import { authReducer } from './userSlice'
-import { subscriptionReducer } from './subscriptionSlice'
-import { usersReducer } from './usersSlice'
+import { authReducer } from './userSlice.js'
+import { subscriptionReducer } from './subscriptionSlice.js'
+import { usersReducer } from './usersSlice.js'
 
 //const middleware = [
 //    ...getDefaultMiddleware(),

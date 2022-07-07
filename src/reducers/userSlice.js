@@ -2,7 +2,7 @@
     createSlice,
     createAsyncThunk,
 } from '@reduxjs/toolkit'
-import { USERS_CREATE, USERS_LOGIN, USERS_RETRIEVE, USERS_LOGOUT } from '../constants'
+import { USERS_CREATE, USERS_LOGIN, USERS_RETRIEVE, USERS_LOGOUT } from '../constants.js'
 
 const authState = {
     loading: false,

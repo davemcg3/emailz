@@ -1,6 +1,6 @@
 import { Outlet, Link } from 'react-router-dom'
 import './App.scss'
-import Nav from './containers/Nav'
+import Nav from './containers/Nav.jsx'
 
 function App() {
     return (

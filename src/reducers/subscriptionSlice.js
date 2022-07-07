@@ -2,7 +2,7 @@ import {
     createSlice,
     createAsyncThunk,
 } from '@reduxjs/toolkit'
-import { SUBSCRIPTIONS_SUBSCRIBE, SUBSCRIPTIONS_UNSUBSCRIBE, SUBSCRIPTIONS_GDPR, SUBSCRIPTIONS_RETRIEVE_ALL } from '../constants'
+import { SUBSCRIPTIONS_SUBSCRIBE, SUBSCRIPTIONS_UNSUBSCRIBE, SUBSCRIPTIONS_GDPR, SUBSCRIPTIONS_RETRIEVE_ALL } from '../constants.js'
 
 
 const subscriptionState = {
