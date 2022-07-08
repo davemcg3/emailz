@@ -5,6 +5,7 @@
     "version": "0.0.1",
     "description": "This is an email form to Netlify lambda to fauna db flow designed to showcase Netlify as a deployment tool.",
     "main": "index.js",
+    "type": "module",
     "browserslist": {
         "production": [
             ">0.2%",

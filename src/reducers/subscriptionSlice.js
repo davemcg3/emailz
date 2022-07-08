@@ -2,7 +2,7 @@ import {
     createSlice,
     createAsyncThunk,
 } from '@reduxjs/toolkit'
-import { SUBSCRIPTIONS_SUBSCRIBE, SUBSCRIPTIONS_UNSUBSCRIBE, SUBSCRIPTIONS_GDPR, SUBSCRIPTIONS_RETRIEVE_ALL } from '../constants'
+import { SUBSCRIPTIONS_SUBSCRIBE, SUBSCRIPTIONS_UNSUBSCRIBE, SUBSCRIPTIONS_GDPR, SUBSCRIPTIONS_RETRIEVE_ALL } from '../constants.js'
 
 
 const subscriptionState = {
@@ -63,7 +63,10 @@ const gdprCall = createAsyncThunk(SUBSCRIPTIONS_GDPR, (args, { dispatch }) => {
 const fetchSubscriptionsCall = createAsyncThunk(SUBSCRIPTIONS_RETRIEVE_ALL, args => {
     return fetch("/api/subscriptions-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
         .then(response => {
-            if (!response.ok) throw Error(response.statusText)
+            if (!response.ok) {
+                args.setIsLoading(false)
+                throw Error(response.statusText)
+            }
             return response.json()
         })
         .then(json => {
@@ -87,6 +90,7 @@ const subscriptionSlice = createSlice({
     extraReducers: {
         [subscribeCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [subscribeCall.rejected]: (state, action) => {
             state.loading = false
@@ -101,6 +105,7 @@ const subscriptionSlice = createSlice({
         },
         [unsubscribeCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [unsubscribeCall.rejected]: (state, action) => {
             state.loading = false
@@ -115,6 +120,7 @@ const subscriptionSlice = createSlice({
         },
         [gdprCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [gdprCall.rejected]: (state, action) => {
             state.loading = false
@@ -129,6 +135,7 @@ const subscriptionSlice = createSlice({
         },
         [fetchSubscriptionsCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [fetchSubscriptionsCall.rejected]: (state, action) => {
             state.loading = false

@@ -1,22 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux'
-import { store, persistor } from './reducers/store'
-import { PersistGate } from 'redux-persist/integration/react'
+import { store, persistor } from './reducers/store.js'
+import { PersistGate } from 'redux-persist/es/integration/react.js'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useLocation, Navigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { authState } from './reducers/userSlice'
+import { authState } from './reducers/userSlice.js'
 import './index.scss';
-import App from './App';
-import Gdpr from './routes/gdpr';
-import Home from './routes/home';
-import Login from './routes/login';
-import Register from './routes/register';
-import Subscriptions from './routes/subscriptions';
-import Unsubscribe from './routes/unsubscribe';
-import Users from './routes/users';
-import reportWebVitals from './reportWebVitals';
+import App from './App.js';
+import Gdpr from './routes/gdpr.jsx';
+import Home from './routes/home.jsx';
+import Login from './routes/login.jsx';
+import Register from './routes/register.jsx';
+import Subscriptions from './routes/subscriptions.jsx';
+import Unsubscribe from './routes/unsubscribe.jsx';
+import Users from './routes/users.jsx';
+import reportWebVitals from './reportWebVitals.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 //TODO: redirect to home if user doesn't have permission to hit intended route

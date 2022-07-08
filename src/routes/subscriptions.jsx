@@ -10,6 +10,8 @@ export default function Subscriptions() {
     const secret = useSelector((state = authState) => state.auth.secret)
     // const users = useSelector((state = usersState) => state.users.users)
     const subscriptions = useSelector((state = subscriptionState) => state.subscription.subscriptions)
+    const error = useSelector((state = subscriptionState) => state.subscription.error)
+    const errored = error !== ""
     const [isLoading, setIsLoading] = useState(false);
     const [showUnsubscribed, setShowUnsubscribed] = useState(false)
     const navigate = useNavigate()
@@ -157,9 +159,19 @@ export default function Subscriptions() {
         )
     }
 
+    const failedToFetch = () => {
+        return (
+            <>
+                <h2 className="haggard-font">Subscriptions</h2>
+                <h3>Failed to Fetch</h3>
+                <p>Error: {error}</p>
+            </>
+        )
+    }
+
     return (
         <main className="flex-container flex-column">
-            {isLoading ? loading() : subscriptionsTable(showUnsubscribed)}
+            {isLoading ? loading() : errored !== '' ? failedToFetch() : subscriptionsTable(showUnsubscribed)}
         </main>
     );
 }

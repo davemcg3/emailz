@@ -2,7 +2,7 @@
     createSlice,
     createAsyncThunk,
 } from '@reduxjs/toolkit'
-import { USERS_CREATE, USERS_LOGIN, USERS_RETRIEVE, USERS_LOGOUT } from '../constants'
+import { USERS_CREATE, USERS_LOGIN, USERS_RETRIEVE, USERS_LOGOUT } from '../constants.js'
 
 const authState = {
     loading: false,
@@ -63,6 +63,7 @@ const authSlice = createSlice({
         [loginCall.pending]: state => {
             state.loading = true
             state.profileFetching = true
+            state.error = ""
         },
         [loginCall.rejected]: (state, action) => {
             state.loading = false
@@ -75,6 +76,7 @@ const authSlice = createSlice({
         },
         [profileFetchCall.pending]: state => {
             state.profileFetching = true
+            state.error = ""
         },
         [profileFetchCall.rejected]: (state, action) => {
             state.profileFetching = false
@@ -91,10 +93,16 @@ const authSlice = createSlice({
         },
         [logoutCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [logoutCall.rejected]: (state, action) => {
             state.loading = false
             state.error = action.error.message
+            // if the logout call fails for any reason we should probably just kick the user from the ui
+            state.email = ''
+            state.name = ''
+            state.admin = false
+            state.secret = ''
         },
         [logoutCall.fulfilled]: (state, action) => {
             state.loading = false
@@ -106,6 +114,7 @@ const authSlice = createSlice({
         },
         [registerCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [registerCall.rejected]: (state, action) => {
             state.loading = false

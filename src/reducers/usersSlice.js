@@ -2,7 +2,7 @@ import {
     createSlice,
     createAsyncThunk,
 } from '@reduxjs/toolkit'
-import { USERS_RETRIEVE_ALL, USERS_MAKE_ADMIN, USERS_DELETE_ONE } from '../constants'
+import { USERS_RETRIEVE_ALL, USERS_MAKE_ADMIN, USERS_DELETE_ONE } from '../constants.js'
 
 
 const usersState = {
@@ -14,7 +14,10 @@ const usersState = {
 const fetchUsersCall = createAsyncThunk(USERS_RETRIEVE_ALL, args => {
     return fetch("/api/users-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
         .then(response => {
-            if (!response.ok) throw Error(response.statusText)
+            if (!response.ok) {
+                args.setIsLoading(false)
+                throw Error(response.statusText)
+            }
             return response.json()
         })
         .then(json => {
@@ -60,6 +63,7 @@ const usersSlice = createSlice({
     extraReducers: {
         [fetchUsersCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [fetchUsersCall.rejected]: (state, action) => {
             state.loading = false
@@ -73,6 +77,7 @@ const usersSlice = createSlice({
         },
         [makeAdminCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [makeAdminCall.rejected]: (state, action) => {
             state.loading = false
@@ -92,6 +97,7 @@ const usersSlice = createSlice({
         },
         [deleteUserCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [deleteUserCall.rejected]: (state, action) => {
             state.loading = false
