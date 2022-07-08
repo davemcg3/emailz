@@ -14,7 +14,10 @@ const usersState = {
 const fetchUsersCall = createAsyncThunk(USERS_RETRIEVE_ALL, args => {
     return fetch("/api/users-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
         .then(response => {
-            if (!response.ok) throw Error(response.statusText)
+            if (!response.ok) {
+                args.setIsLoading(false)
+                throw Error(response.statusText)
+            }
             return response.json()
         })
         .then(json => {

@@ -9,7 +9,9 @@ export default function Users() {
     const dispatch = useDispatch()
     const secret = useSelector((state = authState) => state.auth.secret)
     const users = useSelector((state = usersState) => state.users.users)
-    const [isLoading, setIsLoading] = useState(false);
+    const error = useSelector((state = usersState) => state.users.error)
+    const errored = error !== ""
+    const [isLoading, setIsLoading] = useState(errored);
 
     useEffect(() => {
         setIsLoading(true)
@@ -86,9 +88,19 @@ export default function Users() {
         )
     }
 
+    const failedToFetch = () => {
+        return (
+            <>
+                <h2 className="haggard-font">System Users</h2>
+                <h3>Failed to Fetch</h3>
+                <p>Error: {error}</p>
+            </>
+        )
+    }
+
     return (
         <main className="flex-container flex-column">
-            { isLoading ? loading() : userTable() }
+            {isLoading ? loading() : errored !== '' ? failedToFetch() : userTable()}
         </main>
     );
 }

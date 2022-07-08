@@ -63,7 +63,10 @@ const gdprCall = createAsyncThunk(SUBSCRIPTIONS_GDPR, (args, { dispatch }) => {
 const fetchSubscriptionsCall = createAsyncThunk(SUBSCRIPTIONS_RETRIEVE_ALL, args => {
     return fetch("/api/subscriptions-index", { method: 'GET', mode: 'cors', headers: { 'Authorization': `Bearer ${args.secret}` } })
         .then(response => {
-            if (!response.ok) throw Error(response.statusText)
+            if (!response.ok) {
+                args.setIsLoading(false)
+                throw Error(response.statusText)
+            }
             return response.json()
         })
         .then(json => {
