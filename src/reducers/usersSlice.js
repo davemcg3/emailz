@@ -60,6 +60,7 @@ const usersSlice = createSlice({
     extraReducers: {
         [fetchUsersCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [fetchUsersCall.rejected]: (state, action) => {
             state.loading = false
@@ -73,6 +74,7 @@ const usersSlice = createSlice({
         },
         [makeAdminCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [makeAdminCall.rejected]: (state, action) => {
             state.loading = false
@@ -92,6 +94,7 @@ const usersSlice = createSlice({
         },
         [deleteUserCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [deleteUserCall.rejected]: (state, action) => {
             state.loading = false

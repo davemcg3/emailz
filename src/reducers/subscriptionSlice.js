@@ -87,6 +87,7 @@ const subscriptionSlice = createSlice({
     extraReducers: {
         [subscribeCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [subscribeCall.rejected]: (state, action) => {
             state.loading = false
@@ -101,6 +102,7 @@ const subscriptionSlice = createSlice({
         },
         [unsubscribeCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [unsubscribeCall.rejected]: (state, action) => {
             state.loading = false
@@ -115,6 +117,7 @@ const subscriptionSlice = createSlice({
         },
         [gdprCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [gdprCall.rejected]: (state, action) => {
             state.loading = false
@@ -129,6 +132,7 @@ const subscriptionSlice = createSlice({
         },
         [fetchSubscriptionsCall.pending]: state => {
             state.loading = true
+            state.error = ""
         },
         [fetchSubscriptionsCall.rejected]: (state, action) => {
             state.loading = false
