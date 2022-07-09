@@ -100,7 +100,7 @@ export default function Users() {
 
     return (
         <main className="flex-container flex-column">
-            {isLoading ? loading() : errored !== '' ? failedToFetch() : userTable()}
+            {isLoading ? loading() : errored ? failedToFetch() : userTable()}
         </main>
     );
 }
