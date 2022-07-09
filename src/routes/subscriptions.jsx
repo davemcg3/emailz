@@ -12,7 +12,7 @@ export default function Subscriptions() {
     const subscriptions = useSelector((state = subscriptionState) => state.subscription.subscriptions)
     const error = useSelector((state = subscriptionState) => state.subscription.error)
     const errored = error !== ""
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(errored);
     const [showUnsubscribed, setShowUnsubscribed] = useState(false)
     const navigate = useNavigate()
     const location = useLocation();
@@ -171,7 +171,7 @@ export default function Subscriptions() {
 
     return (
         <main className="flex-container flex-column">
-            {isLoading ? loading() : errored !== '' ? failedToFetch() : subscriptionsTable(showUnsubscribed)}
+            {isLoading ? loading() : errored ? failedToFetch() : subscriptionsTable(showUnsubscribed)}
         </main>
     );
 }
